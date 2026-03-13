@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = function define_thesis_proposal(sequelize, DataTypes) {
   const ThesisProposal = sequelize.define(
     'thesis_proposal',
     {
@@ -76,6 +76,14 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         references: {
           model: 'collegio',
+          key: 'id',
+        },
+      },
+      company_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'company',
           key: 'id',
         },
       },
